@@ -9,6 +9,7 @@ Lightweight  podman image built on top of **debian:jessie-slim** with installed 
 * cmake (v3.5)
 
 Original dockerfile: https://github.com/lpodkalicki/esp8266-toolchain-docker
+
 Toolchain info: https://docs.espressif.com/projects/esp8266-rtos-sdk/en/latest/get-started/index.html
   
 ## Building and installing image locally
