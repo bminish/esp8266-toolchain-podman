@@ -3,7 +3,7 @@
 
 Lightweight  podman image built on top of **debian:jessie-slim** with installed xtensa toolchain, ESP8266_RTOS_SDK and few additional tools:
 * xtensa-lx106 (xtensa-lx106-elf-gcc8_4_0-esp-2020r3-linux-amd64.tar.gz)
-* ESP8266_RTOS_SDK (v3.4)
+* ESP8266_RTOS_SDK (v3.4) (edit Containerfile to select 'main' or other branches ) 
 * esptool.py (v2.4)
 * make (v4.2)
 * cmake (v3.5)
