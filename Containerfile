@@ -11,11 +11,13 @@ MAINTAINER brendan minish <bminish@gmail.com>
 # podman version 
 #
 # SDK github branch Note we are currently on branch 3.4 
+# Others may want to be on the 'master' branch
 ARG BRANCH=release/v3.4
-# xtensa toolchain version to download 
+#ARG BRANCH=master
+
+# xtensa toolchain version to download. Check for a new one from time to time. 29/6/2021
 # see https://docs.espressif.com/projects/esp8266-rtos-sdk/en/latest/get-started/index.html
 ARG TOOLCHAIN_TARBALL_URL=https://dl.espressif.com/dl/xtensa-lx106-elf-gcc8_4_0-esp-2020r3-linux-amd64.tar.gz
-
 
 
 # Prepare directory for tools
@@ -27,7 +29,7 @@ WORKDIR ${TOOLS_PATH}
 RUN apt-get update && apt-get install -y \
 	ca-certificates tar bzip2 wget make git gperf sed bash help2man libtool libtool-bin \
 	autoconf automake libtool gcc g++ flex bison texinfo gawk ncurses-dev \
-	libffi-dev libssl-dev python python-dev python-setuptools python-pip vim-tiny \
+	libffi-dev libssl-dev python python-dev python-setuptools python-pip \
     && rm -rf /var/lib/apt/lists/*
 
 # Install cmake 3.5
@@ -41,6 +43,7 @@ RUN chmod ugo+x ./${CMAKE_INSTALLER_FILENAME} \
 	&& rm ${CMAKE_INSTALLER_FILENAME}
 
 ENV PATH="${CMAKE_PATH}/bin:${PATH}"
+
 
 # Install xtensa toolchain
 ARG TOOLCHAIN_PATH=${TOOLS_PATH}/toolchain
