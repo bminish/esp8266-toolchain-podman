@@ -35,9 +35,6 @@ RUN chmod ugo+x ./${CMAKE_INSTALLER_FILENAME} \
 ENV PATH="${CMAKE_PATH}/bin:${PATH}"
 
 # Install xtensa toolchain
-#ARG TOOLCHAIN_TARBALL_URL=https://dl.espressif.com/dl/xtensa-lx106-elf-linux64-1.22.0-92-g8facf4c-5.2.0.tar.gz
-#ARG TOOLCHAIN_TARBALL_URL=https://dl.espressif.com/dl/xtensa-lx106-elf-linux64-1.22.0-100-ge567ec7-5.2.0.tar.gz
-
 ARG TOOLCHAIN_TARBALL_URL=https://dl.espressif.com/dl/xtensa-lx106-elf-gcc8_4_0-esp-2020r3-linux-amd64.tar.gz
 ARG TOOLCHAIN_PATH=${TOOLS_PATH}/toolchain
 RUN wget ${TOOLCHAIN_TARBALL_URL} \
@@ -50,7 +47,7 @@ ENV PATH="${TOOLCHAIN_PATH}/bin:${PATH}"
 
 # Install RTOS SDK
 ARG IDF_PATH=${TOOLS_PATH}/ESP8266_RTOS_SDK
-ARG MISSING_ESPTOOL_CMAKE_URL=https://raw.githubusercontent.com/espressif/esp-idf/master/components/esptool_py/run_esptool.cmake
+# ARG MISSING_ESPTOOL_CMAKE_URL=https://raw.githubusercontent.com/espressif/esp-idf/master/components/esptool_py/run_esptool.cmake
 RUN git clone --branch release/v3.4 https://github.com/espressif/ESP8266_RTOS_SDK.git \
 	&& python -m pip install pip==20.1 \
 	&& pip install --upgrade setuptools \
