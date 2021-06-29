@@ -45,4 +45,3 @@ $ esp8266-toolchain make menuconfig
 $ esp8266-toolchain make && make flash monitor
 ```
 
-# esp8266-toolchain-podman
