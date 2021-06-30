@@ -1,7 +1,7 @@
 
 # Overview
 
-Lightweight  podman image built on top of **debian:jessie-slim** with installed xtensa toolchain, ESP8266_RTOS_SDK and few additional tools:
+Lightweight usermode podman image built on top of **debian:jessie-slim** with installed xtensa toolchain, ESP8266_RTOS_SDK and few additional tools:
 * xtensa-lx106 (xtensa-lx106-elf-gcc8_4_0-esp-2020r3-linux-amd64.tar.gz)
 * ESP8266_RTOS_SDK (v3.4) (edit Containerfile to select 'main' or other branches ) 
 * esptool.py (v2.4)
@@ -24,7 +24,7 @@ cd eps8266-toolchain
 ## An example of running toolchain binary
 
 ```bash
-podman run --rm -it --privileged -v $(pwd):/build localhost/esp-sdk xtensa-lx106-elf-gcc --version
+podman run --rm -it -v $(pwd):/build localhost/esp-sdk xtensa-lx106-elf-gcc --version
 ```
 
 ## Getting started
@@ -47,7 +47,7 @@ $ esp8266-toolchain make menuconfig
 $ esp8266-toolchain -p /dev/ttyUSB<x> make && make flash monitor
 ```
 
-NOTE: for working serial comms with podman usermode containers the user needs group access to the tty port and podman needs to properly configured for this.
+NOTE: flashing requires working serial comms, with podman usermode containers the user needs group access to the tty port and podman needs to properly configured for this.
 
 see https://www.redhat.com/sysadmin/supplemental-groups-podman-containers
 
