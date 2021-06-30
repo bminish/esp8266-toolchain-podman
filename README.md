@@ -47,6 +47,8 @@ $ esp8266-toolchain make menuconfig
 $ esp8266-toolchain make && make flash monitor
 ```
 
+NOTE: for working serial comms the tty port needs to be owned by the user calling the script.
+membership of a tty group such as 'dialout' is not sufficent.
 
 ```bash
 $ podman run --rm -it --device /dev/ttyUSB0  -v $(pwd):/build localhost/esp-sdk bash
