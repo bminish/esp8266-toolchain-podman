@@ -9,7 +9,7 @@ TOOLCHAIN_SCRIPT=${NAME}
 cat <<EOF > /tmp/${TOOLCHAIN_SCRIPT}.tmp
 #!/bin/bash
 
-podman run --rm -it --privileged -v \$(pwd):/build ${IMAGE_NAME} "\$@"
+podman run --rm -it -v \$(pwd):/build ${IMAGE_NAME} "\$@"
 EOF
 
 chmod ugo+x /tmp/${TOOLCHAIN_SCRIPT}.tmp
