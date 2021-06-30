@@ -8,7 +8,6 @@ TOOLCHAIN_SCRIPT=${NAME}
 
 cat <<EOF > /tmp/${TOOLCHAIN_SCRIPT}.tmp
 #!/bin/bash
-#podman run --rm -it --privileged -v \$(pwd):/build localhost/esp-sdk:latest "\$@"
 while getopts ":p:" flag; do
         case "\${flag}" in
                 p)
