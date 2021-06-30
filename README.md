@@ -46,9 +46,7 @@ $ esp8266-toolchain cmake -version
 $ esp8266-toolchain make menuconfig
 $ esp8266-toolchain make && make flash monitor
 ```
-NOTE: at present flashing does not work from within podman unless you first change the owner of the tty to the user running podman. 
-Group information is not passed down to podman, see 
-https://blog.christophersmart.com/2020/04/18/accessing-usb-serial-devices-in-fedora-silverblue/
+
 
 ```bash
 $ podman run --rm -it --device /dev/ttyUSB0  -v $(pwd):/build localhost/esp-sdk bash
