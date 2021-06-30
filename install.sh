@@ -8,8 +8,22 @@ TOOLCHAIN_SCRIPT=${NAME}
 
 cat <<EOF > /tmp/${TOOLCHAIN_SCRIPT}.tmp
 #!/bin/bash
+#podman run --rm -it --privileged -v \$(pwd):/build localhost/esp-sdk:latest "\$@"
+while getopts ":p:" flag; do
+        case "\${flag}" in
+                p)
+                        port=\${OPTARG}
+                        shift 2
+                        ;;
+                esac
+        done
+if [ "\$port" = "" ]; then
+        podman run --rm -it -v \$(pwd):/build localhost/esp-sdk:latest "\$@"
+else
+        podman run --rm -it --group-add=dialout --device \${port} -v \$(pwd):/build localhost/esp-sdk:latest "\$@"
+fi
 
-podman run --rm -it -v \$(pwd):/build ${IMAGE_NAME} "\$@"
+
 EOF
 
 chmod ugo+x /tmp/${TOOLCHAIN_SCRIPT}.tmp
