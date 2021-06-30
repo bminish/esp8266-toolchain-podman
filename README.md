@@ -48,7 +48,9 @@ $ esp8266-toolchain -p /dev/ttyUSB<x> make && make flash monitor
 ```
 
 NOTE: for working serial comms with podman usermode containers the user needs group access to the tty port and podman needs to properly configured for this.
+
 see https://www.redhat.com/sysadmin/supplemental-groups-podman-containers
+
 If all is in order and the tty port exists then passing '  -p /dev/ttyUSB<x> ' enables flashing from within the container 
 
 ```bash
