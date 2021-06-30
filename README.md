@@ -44,7 +44,7 @@ $ esp8266-toolchain xtensa-lx106-elf-gcc --version
 $ esp8266-toolchain make -version
 $ esp8266-toolchain cmake -version
 $ esp8266-toolchain make menuconfig
-$ esp8266-toolchain -p /dev/ttyUSB<x> make && make flash monitor
+$ esp8266-toolchain -p /dev/ttyUSB<x> make && make flash
 ```
 
 NOTE: flashing requires working serial comms, with podman usermode containers the user needs group access to the tty port and podman needs to properly configured for this.
