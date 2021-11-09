@@ -1,7 +1,7 @@
 
 # Overview
 
-Lightweight usermode podman image built on top of **debian:jessie-slim** with installed xtensa toolchain, ESP8266_RTOS_SDK and few additional tools:
+Lightweight usermode podman image built on top of **debian:Latest** with installed xtensa toolchain, ESP8266_RTOS_SDK and few additional tools:
 * xtensa-lx106 (xtensa-lx106-elf-gcc8_4_0-esp-2020r3-linux-amd64.tar.gz)
 * ESP8266_RTOS_SDK (v3.4) (edit Containerfile to select 'main' or other branches ) 
 * esptool.py (v2.4)
@@ -57,3 +57,4 @@ If all is in order and the tty port exists then passing '  -p /dev/ttyUSB<x> ' e
 $ esp8266-toolchain  -p /dev/ttyUSB<x> make flash
 ```
 
+# esp32-toolkit-podman
