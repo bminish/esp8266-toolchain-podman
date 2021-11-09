@@ -1,2 +1,2 @@
 #!/bin/bash
-podman build --rm -t localhost/esp-sdk:latest .
+podman build --rm -t localhost/esp32-sdk:latest .

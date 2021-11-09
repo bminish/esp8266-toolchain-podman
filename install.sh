@@ -1,7 +1,7 @@
 #!/bin/bash
 
-NAME=esp8266-toolchain
-IMAGE_NAME=localhost/esp-sdk:latest
+NAME=esp32-toolchain
+IMAGE_NAME=localhost/esp32-sdk:latest
 TOOLCHAIN_SCRIPT=${NAME}
 
 #docker pull ${IMAGE_NAME}:latest
@@ -17,9 +17,9 @@ while getopts ":p:" flag; do
                 esac
         done
 if [ "\$port" = "" ]; then
-        podman run --rm -it -v \$(pwd):/build localhost/esp-sdk:latest "\$@"
+	podman run --rm -it -v \$(pwd):/build localhost/esp32-sdk:latest "\$@"
 else
-        podman run --rm -it --group-add=dialout --device \${port} -v \$(pwd):/build localhost/esp-sdk:latest "\$@"
+	podman run --rm -it --group-add=dialout --device \${port} -v \$(pwd):/build localhost/esp32-sdk:latest "\$@"
 fi
 
 
